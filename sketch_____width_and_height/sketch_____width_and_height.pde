@@ -1,24 +1,55 @@
 
-// width : ディスプレイウィンドウの幅を格納するシステム変数
-// height : ディスプレイウィンドウの高さを格納するシステム変数
+// width : ウィンドウの幅を格納するシステム変数
+// height : ウィンドウの高さを格納するシステム変数
 // Processing側で用意されているので特に何も宣言しなくても呼び出して使える
 
+// 画面がフルスクリーンかどうか？
+boolean isFullScreen = false;
+
 // setup関数 : 初回1度だけ実行される
-void setup(){
-  size(960,540); //ウィンドウサイズを960px,540pxに
-  
+void setup() {
+
+  settings(); // settings : フルスクリーンの指定をする場合は呼び出す必要がある
+
   // 画面の情報をコンソールに出力
-  println("width :" + width + "px");
-  println("height :" + height + "px");
-  
+  println("ウィンドウ幅(width) :" + width + "px"); 
+  println("ウィンドウ幅(height):" + height + "px");
+  println("画面幅(displayWidth) :" + displayWidth + "px");
+  println("画面高さ(displayHeight) :" + displayHeight + "px");
+
+  // ウィンドウサイズを変更可能にする
+  surface.setResizable(true);
 }
 
 // draw関数 : setup関数実行後繰り返し実行される
-void draw(){
+void draw() {
   // 背景色を指定(R,G,B)
-  background(255,255,255); //RGBは各0-255の数値で色を指定する
-  
-  
-  
-  ellipse(width/2,height/2,200,200);
+  background(255, 255, 255); //RGBは各0-255の数値で色を指定する
+  ellipse(width/2, height/2, 200, 200); //画面中央に200pxの円を描画
+}
+
+void settings() {
+  fullScreen(); // フルスクリーンにする関数
+  isFullScreen = true;
+}
+
+// mousePressed関数 : マウスをクリックしたときに実行される
+void mousePressed() {
+  if (isFullScreen == false) {
+    fullScreen();
+  } else {
+    int w = 960; 
+    int h = 540;
+    int windowX = displayWidth/2 - w/2; 
+    int windowY = displayHeight/2 - h/2;
+    surface.setLocation(windowX, windowY);
+    surface.setSize(960, 540);
+  }
+  isFullScreen = !isFullScreen;
+  println(isFullScreen);
+}
+
+void changeWindowSize(int w, int h) {
+  surface.setSize(w, h);
+  size(w, h);
 }

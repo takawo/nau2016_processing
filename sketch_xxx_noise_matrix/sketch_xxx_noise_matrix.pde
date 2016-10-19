@@ -6,8 +6,8 @@ void setup() {
 void draw() {
   background(255,255,255);
   float r1 = constrain(abs(randomGaussian()*10),5,50);
-  //float r2 = constrain(abs(randomGaussian()*10),5,50);
-  drawNoise(r1,r1);
+  float r2 = constrain(abs(randomGaussian()*10),5,50);
+  drawNoise(r1,r2);
 }
 
 void drawNoise(float gridX,float gridY) {

@@ -19,10 +19,10 @@ void draw() {
   background(0, 0, 95);
   // ランダムで選んだ数値の配列の値を加算
   //列の数(0〜20)で、ランダムに数字を選ぶ(数字が小さい方に偏りあり)
-  int r = int(random(1)*random(1)*col); 
+  int r = int(random(1)*random(1)*col);
 
   // 大きい数字が出現しやすいようにするには
-  // int r = int((1 - random(1)*random(1))*col); 
+  // int r = int((1 - random(1)*random(1))*col);
 
   nums[r] += 5; //該当列にあたる配列の数値5を+する。
 
@@ -32,7 +32,7 @@ void draw() {
     float y = height-nums[i]; // 開始点のy座標
     float w = colWidth; //列の幅
     float h = nums[i]; // 列の高さ=配列の値
-    
+
     // 列の高さに応じて、矩形の塗りつぶし色の彩度を増減
     fill(0, map(h, 0, height, 0, 100), 100);
     rect(x, y, w, h); //配列の個数分、四角を描画

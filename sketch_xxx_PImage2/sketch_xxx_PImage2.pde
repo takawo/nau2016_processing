@@ -11,10 +11,10 @@ void setup() {
 void draw() {
   // 背景を白に
   background(0, 0, 100);
-  
+
   int grid = 5;
-  //int grid = int(noise(frameCount*0.03)*50); 
-  
+  //int grid = int(noise(frameCount*0.03)*50);
+
   // imgの各ピクセルにアクセスして色情報を取得
   for (int y = 0; y < img.height; y += grid) {
     for (int x = 0; x < img.width; x += grid) {
@@ -28,6 +28,6 @@ void draw() {
       point(x, y);
     }
   }
-  
+
   image(img,512,0);
 }

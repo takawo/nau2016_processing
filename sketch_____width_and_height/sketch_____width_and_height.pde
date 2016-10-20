@@ -12,7 +12,7 @@ void setup() {
   settings(); // settings : フルスクリーンの指定をする場合は呼び出す必要がある
 
   // 画面の情報をコンソールに出力
-  println("ウィンドウ幅(width) :" + width + "px"); 
+  println("ウィンドウ幅(width) :" + width + "px");
   println("ウィンドウ幅(height):" + height + "px");
   println("画面幅(displayWidth) :" + displayWidth + "px");
   println("画面高さ(displayHeight) :" + displayHeight + "px");
@@ -30,23 +30,6 @@ void draw() {
 
 void settings() {
   fullScreen(); // フルスクリーンにする関数
-  isFullScreen = true;
-}
-
-// mousePressed関数 : マウスをクリックしたときに実行される
-void mousePressed() {
-  if (isFullScreen == false) {
-    fullScreen();
-  } else {
-    int w = 960; 
-    int h = 540;
-    int windowX = displayWidth/2 - w/2; 
-    int windowY = displayHeight/2 - h/2;
-    surface.setLocation(windowX, windowY);
-    surface.setSize(960, 540);
-  }
-  isFullScreen = !isFullScreen;
-  println(isFullScreen);
 }
 
 void changeWindowSize(int w, int h) {

@@ -10,13 +10,13 @@ void draw() {
 
   // 塗りつぶしをナシに
   noFill();
-  
-  // 円弧を描画 x,y,diameter diameter,startAngle,endAngle 
+
+  // 円弧を描画 x,y,diameter diameter,startAngle,endAngle
   arc (240, 270, 300, 300, 0, TWO_PI * 270/360);
 
   // 塗りつぶしを青に
   fill(0, 128, 255);
-  
+
   // 円弧を描画 x,y,diameter diameter,startAngle,endAngle, PIEで円グラフのチャートのように描画
   arc (720, 270, 300, 300, 0, TWO_PI * 270/360, PIE);
 }

@@ -25,7 +25,7 @@ void draw() {
   strokeWeight(1); // 線の太さを指定
 
   translate(width/2, height/2); // 原点を画面中央に移動
-  //RG.setPolygonizer(RG.ADAPTATIVE);
+  RG.setPolygonizer(RG.ADAPTATIVE);
 
   shape.draw(); // テキストを描画
 

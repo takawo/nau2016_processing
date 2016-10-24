@@ -3,6 +3,7 @@ float rotateAngle = 0;
 void setup() {
   size(960, 540, P3D); // ウィンドウサイズを960px,540pxに
   colorMode(HSB, 360, 100, 100); // HSB 色空間
+  sphereDetail(8);
 }
 
 // draw関数 : setup関数実行後繰り返し実行される
@@ -17,13 +18,16 @@ void draw() {
   noFill();
   stroke(0, 0, 100);
 
+  sphere(100);
+
+
   pushMatrix();
-  translate(0,0,-200);
+  translate(0,0,-350);
   box(100);
   popMatrix();
 
   pushMatrix();
-  translate(0,0,200);
+  translate(0,0,350);
   sphere(100);
   popMatrix();
 }

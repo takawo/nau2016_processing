@@ -19,6 +19,7 @@ float rotateAngle = 0;
 public void setup() {
    // \u30a6\u30a3\u30f3\u30c9\u30a6\u30b5\u30a4\u30ba\u3092960px,540px\u306b
   colorMode(HSB, 360, 100, 100); // HSB \u8272\u7a7a\u9593
+  sphereDetail(8);
 }
 
 // draw\u95a2\u6570 : setup\u95a2\u6570\u5b9f\u884c\u5f8c\u7e70\u308a\u8fd4\u3057\u5b9f\u884c\u3055\u308c\u308b
@@ -33,13 +34,16 @@ public void draw() {
   noFill();
   stroke(0, 0, 100);
 
+  sphere(100);
+
+
   pushMatrix();
-  translate(0,0,-200);
+  translate(0,0,-350);
   box(100);
   popMatrix();
 
   pushMatrix();
-  translate(0,0,200);
+  translate(0,0,350);
   sphere(100);
   popMatrix();
 }

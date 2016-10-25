@@ -29,7 +29,7 @@ class SecondApplet extends PApplet {
   }
 
   void settings() {
-    size(200, 400);
+    size(150, 400);
   }
   void setTitle(String str) {
     surface.setTitle(str);

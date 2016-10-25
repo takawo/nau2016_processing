@@ -21,7 +21,7 @@ void setup() {
     seconds[i].font = font;
     float y = (displayHeight/2 - 200) + sin(radians(frameCount%360+i*360/seconds.length))*displayHeight/5;
     seconds[i].str = timeArray[i];
-    seconds[i].surface.setLocation(i*200+50, int(y));
+    seconds[i].surface.setLocation(i*150+50, int(y));
   }
 }
 
@@ -31,7 +31,7 @@ void draw() {
     float y = (displayHeight/2 - 200) + sin(radians(frameCount%360+i*360/seconds.length))*displayHeight/5;
     seconds[i].setTitle(timeArray[i]);
     seconds[i].str = timeArray[i];
-    seconds[i].surface.setLocation(i*200+50, int(y));
+    seconds[i].surface.setLocation(i*150+50, int(y));
     if(i == 0){
         //surface.setLocation(i*200+50+50, int(y)+50);
     }

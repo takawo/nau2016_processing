@@ -5,5 +5,6 @@ void setup(){
 
 
 void draw(){
-  surface.setLocation((-width+frameCount*10)%displayWidth,displayHeight/2-height/2);
+  int x = (-width+frameCount*10)%displayWidth;
+  surface.setLocation(x,displayHeight/2-height/2);
 }

@@ -11,14 +11,14 @@ void setup() {
 
 // draw関数 : setup関数実行後繰り返し実行される
 void draw() {
-  fill(0, 0, 100, 5);
+  fill(0, 0, 100, 15);
   rect(0, 0, width, height);
   strokeWeight(1);
-  stroke(frameCount%360/10,80,50);
+  stroke(frameCount%360/10, 80, 50);
   translate(width/2, height/2);
-  for (float i = 0; i < 2000; i+=5) {
-    float angleX = (frameCount*5+i)/3f;
-    float angleY = (frameCount*3+i)/5f;
+  for (float i = 0; i < 2000; i+=1) {
+    float angleX = (frameCount*2.5+i)/3f;
+    float angleY = (frameCount*1.8+i)/5f;
     float thetaX = radians(angleX);
     float thetaY = radians(angleY);
     float radiusX = map(sin((i+frameCount)/100), -1, 1, 200, 450);

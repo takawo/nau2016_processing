@@ -1,5 +1,5 @@
 // 変数
-int num = 200; // 配列の個数
+int num = 60; // 配列の個数
 int[] posX = new int[num]; // mouseXの数値を格納していく配列
 int[] posY = new int[num]; // mouseYの数値を格納していく配列
 
@@ -12,8 +12,8 @@ void setup(){
 
   // 配列の初期化
   for(int i = 0; i < num; i++){
-    posX[i] = 0;
-    posY[i] = 0;
+    posX[i] = width/2;
+    posY[i] = height/2;
   }
 }
 
@@ -22,6 +22,9 @@ void draw(){
   fill(0,0,0,10);
   noStroke();
   rect(0,0,width,height);
+  if(mouseX == 0 && mouseY == 0){
+    return;
+  }
   for(int j = num-1; j > 0; j-- ){
     posX[j] = posX[j-1];
     posY[j] = posY[j-1];

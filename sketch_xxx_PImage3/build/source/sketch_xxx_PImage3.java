@@ -40,7 +40,7 @@ public void draw() {
       // \u8272\u60c5\u5831\u304b\u3089\u8272\u76f8(0-360)\u3092\u53d6\u5f97
       float angle = hue(c);
       // \u5f27\u5ea6\u6cd5\uff08\u30e9\u30b8\u30a2\u30f3\uff09\u306b\u5909\u63db
-      float theta = radians(angle-45);
+      float theta = radians(angle);
 
       // \u8272\u6307\u5b9a
       stroke(c);
@@ -49,7 +49,7 @@ public void draw() {
 
       pushMatrix(); // \u539f\u70b9\u306e\u4f4d\u7f6e\u3092\u4fdd\u5b58
       translate(x,y); // \u539f\u70b9\u306e\u4f4d\u7f6e\u3092\u79fb\u52d5
-      rotate(theta); // \u56de\u8ee2\uff08\u8272\u76f8\u3092\u3082\u3068\u306b\uff09
+      rotate(theta+frameCount*0.01f); // \u56de\u8ee2\uff08\u8272\u76f8\u3092\u3082\u3068\u306b\uff09
       line(0,0,grid*2,0); // \u7dda\u3092\u5f15\u304f
       popMatrix(); // \u539f\u70b9\u306e\u4f4d\u7f6e\u3092\u5fa9\u5e30
     }

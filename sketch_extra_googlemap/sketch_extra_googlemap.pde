@@ -1,33 +1,38 @@
+// Google Mapライブラリの読み込み
 import googlemapper.*;
+// googleMapper.jarをダウンロードしてpdeがある階層にcodeフォルダを作成し、そこにコピーする
 
-PImage map;
-GoogleMapper gMapper;
+PImage map; // 地図の画像
+GoogleMapper gMapper; // GoogleMapperのインスタンス
 
-public void setup() {
+void setup() {
+  size(960,540);
 
-size(1280,480);
+  double maCenterLat = 35.367567; // 緯度
+  double mapCenterLon = 136.639469; // 経度
+  int zoomLevel =17; //マップのズームレベル
 
-double maCenterLat =31.219293128780347;
-double mapCenterLon =121.55058860778809;
-int zoomLevel =15;
-String mapType = GoogleMapper.MAPTYPE_HYBRID;
-int mapWidth=1280;
-int mapHeight=480;
+  // マップタイプの指定
+  // String mapType = GoogleMapper.MAPTYPE_TERRAIN; // 地形
+  // String mapType = GoogleMapper.MAPTYPE_SATELITE; // 衛星写真
+  String mapType = GoogleMapper.MAPTYPE_HYBRID; // ハイブリッド
 
-gMapper = new GoogleMapper(maCenterLat, mapCenterLon, zoomLevel, mapType, mapWidth,mapHeight);
+  // マップのサイズ
+  int mapWidth=width;
+  int mapHeight=height;
 
-map = gMapper.getMap();
+  // インスタンスの初期化
+  gMapper = new GoogleMapper(maCenterLat, mapCenterLon, zoomLevel, mapType, mapWidth,mapHeight);
+
+  // イメージとして取得
+  map = gMapper.getMap();
 }
 
-public void draw() {
+void draw() {
 
-image(map,0,0);
+  // イメージを表示
+  image(map,0,0);
 
-saveFrame("map.jpg");
-
-//println(gMapper.y2lat(240));//outputs 40.7782667
-// println(gMapper.x2lon(320));//outputs -73.9698797
-// println(gMapper.lat2y(31.219293128780347)); //outputs 240.0
-// println(gMapper.lon2x(121.55058860778809));//outputs 320.0
+  //saveFrame("map.jpg");
 
 }

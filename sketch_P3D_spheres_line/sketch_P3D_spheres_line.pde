@@ -36,15 +36,15 @@ void draw() {
     float y = radius * sin(radianS) * sin(radianT);
     float z = radius * cos(radianS);
 
-    stroke(220,80,100);
+    stroke(220, 80, 100);
     if (lastX != 0) {
       strokeWeight(1);
       // 現在の座標から一つ前の座標に線を引く
       line(x, y, z, lastX, lastY, lastZ);
     }
     pushMatrix();
-    translate(x,y,z);
-    fill(220,80,100);
+    translate(x, y, z);
+    fill(220, 80, 100);
     noStroke();
     sphere(4);
     popMatrix();
@@ -56,7 +56,7 @@ void draw() {
 
     // sとtを同時に更新
     s++;
-    t+=36;
+    t+=velocity;
   }
-  velocity += map(sin(frameCount*0.01),-1,1,-0.5,0.5);
+  velocity += map(sin(frameCount*0.001), -1, 1, -0.1, 0.1);
 }

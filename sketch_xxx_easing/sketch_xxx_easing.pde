@@ -16,7 +16,7 @@ void setup() {
 // draw関数 : setup関数実行後繰り返し実行される
 void draw() {
   // モーションブラー
-  fill(0, 0, 100, 10); // 透明度を下げた白で 
+  fill(0, 0, 100, 1); // 透明度を下げた白で
   rect(width/2, height/2, width, height); //画面サイズの矩形を描画
   // rectModeがデフォルトの場合は、rect(0,0,width,height);
   // 上の2行でモーションブラーがかけられる
@@ -26,8 +26,8 @@ void draw() {
 
   // イージングの関数lerp(a,b,aとbの間の割合0.0〜1.0まで)
   // lerpの値をx,yなどに代入することで、少しずつ動くアニメーションを実現している
-  // x,y,size,c,angleなど様々な要素にイージングをかける方法  
-  x = lerp(x, tx, easing); 
+  // x,y,size,c,angleなど様々な要素にイージングをかける方法
+  x = lerp(x, tx, easing);
   y = lerp(y, ty, easing);
   w = lerp(w, tw, easing);
   h = lerp(h, th, easing);
@@ -39,7 +39,7 @@ void draw() {
   rotate(radians(angle));  // 回転
   rect(0, 0, w, h);  // 矩形を描画
   popMatrix();  // 座標を戻す
-  
+
   // もしターゲットの位置に近づいたら
   // dist関数で2点間の距離を計算できる
   if (dist(x, y, tx, ty) < 1) {
@@ -65,7 +65,7 @@ void initEasing() {
   easing = random(0.01, 0.08);
 
   float n = random(360); // 色相をランダムに
-  c = color(n, 80, 100); 
+  c = color(n, 80, 100);
   tc = color((n+180)%360, 80, 100); // 反対の色を設定
 }
 
@@ -79,18 +79,18 @@ void findTarget() {
     tx = random(width);
     ty = random(height);
   } while (dist(x, y, tx, ty) < 300);
-  
+
   w = tw;
   tw = random(200);
   h = th;
   th = random(200);
-  
+
   easing = random(0.01, 0.08);
-  
+
   c = tc;
   float n = random(360);
   tc = color(n, 80, 100);
-  
+
   angle = tangle%360;
   tangle = random(360);
 }

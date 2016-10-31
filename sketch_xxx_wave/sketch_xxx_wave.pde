@@ -1,5 +1,6 @@
 int num = 5;
 ArrayList<Waves> ws;
+
 void setup() {
   size(960, 540);
   colorMode(HSB, 360, 100, 100);

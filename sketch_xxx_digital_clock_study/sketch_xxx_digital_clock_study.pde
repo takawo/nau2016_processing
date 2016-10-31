@@ -15,8 +15,8 @@ void setup() {
 
 // draw関数 : setup関数実行後繰り返し実行される
 void draw() {
-  String hour = str(100+hour()).substring(1, 3); 
-  String minute = str(100+minute()).substring(1, 3); 
+  String hour = str(100+hour()).substring(1, 3);
+  String minute = str(100+minute()).substring(1, 3);
   String second = str(100+second()).substring(1, 3);
   println(psecond, second);
   if (psecond.equals(second) == false) {

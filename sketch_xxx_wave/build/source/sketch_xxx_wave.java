@@ -16,6 +16,7 @@ public class sketch_xxx_wave extends PApplet {
 
 int num = 5;
 ArrayList<Waves> ws;
+
 public void setup() {
   
   colorMode(HSB, 360, 100, 100);

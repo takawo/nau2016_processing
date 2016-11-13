@@ -19,7 +19,7 @@ void draw() {
   fill(250, 100, 100);
   translate(width/2, height/2);
   for (Mover m : movers) {
-    //m.update();
+    m.update();
     m.draw();
   }
 }

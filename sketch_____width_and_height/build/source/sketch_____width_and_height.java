@@ -46,23 +46,6 @@ public void draw() {
 
 public void settings() {
   fullScreen(); // \u30d5\u30eb\u30b9\u30af\u30ea\u30fc\u30f3\u306b\u3059\u308b\u95a2\u6570
-  isFullScreen = true;
-}
-
-// mousePressed\u95a2\u6570 : \u30de\u30a6\u30b9\u3092\u30af\u30ea\u30c3\u30af\u3057\u305f\u3068\u304d\u306b\u5b9f\u884c\u3055\u308c\u308b
-public void mousePressed() {
-  if (isFullScreen == false) {
-    fullScreen();
-  } else {
-    int w = 960;
-    int h = 540;
-    int windowX = displayWidth/2 - w/2;
-    int windowY = displayHeight/2 - h/2;
-    surface.setLocation(windowX, windowY);
-    surface.setSize(960, 540);
-  }
-  isFullScreen = !isFullScreen;
-  println(isFullScreen);
 }
 
 public void changeWindowSize(int w, int h) {

@@ -1,19 +1,14 @@
-import processing.video.*;
-
-Capture cam;
-float diameter = 5;
+float diameter = 30;
 ArrayList<Point> points;
 // setup関数 : 初回1度だけ実行される
 void setup() {
-  size(1280, 720); // ウィンドウサイズを1280px,720pxに
+  size(960, 540); // ウィンドウサイズを960px,540pxに
   colorMode(HSB, 360, 100, 100); // HSBでの色指定にする
   smooth(); // 描画を滑らかに
-  cam = new Capture(this,640,360);
-  cam.start();
   frameRate(60);
   points = new ArrayList<Point>();
   for (int x = 0; x <= width; x += diameter) {
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 10; i++) { 
       points.add(new Point(x, random(height)));
     }
   }
@@ -22,31 +17,28 @@ void setup() {
 
 // draw関数 : setup関数実行後繰り返し実行される
 void draw() {
-  if(cam.available()){
-    cam.read();
-  }
-  fill(0, 0, 0, 10);
-  rect(0, 0, width, height);
+  fill(0, 0, 0, 1); 
+  rect(0, 0, width, height); 
   for (Point point : points) {
-    point.update();
+    point.update(); 
     point.display();
   }
-  image(cam,20,20,16 * 15, 9 * 15);
 }
 
 class Point {
-  PVector pos;
-  PVector vel;
-  PVector left = new PVector(-1, 0);
-  PVector right = new PVector(1, 0);
-  boolean isLeft = false;
-  boolean isRight = false;
+  PVector pos; 
+  PVector vel; 
+  PVector left = new PVector(-1, 0); 
+  PVector right = new PVector(1, 0); 
+  boolean isLeft = false; 
+  boolean isRight = false; 
   int counter = 0;
+  color[] colors = {#623C62,#2C1B31,#B04361,#FA7066,#FEBB62};
   color c;
   Point(float x, float y) {
-    pos = new PVector(x, y);
+    pos = new PVector(x, y); 
     vel = new PVector(0, random(-1,-2.5));
-    c = cam.get((int)x/2,(int)y/2);
+    c = colors[int(random(colors.length))];
   }
   void update() {
     if (random(1) < 0.005 && isLeft == false && isRight == false) {
@@ -56,22 +48,22 @@ class Point {
       isRight = true;
     }
     if (isLeft && counter < diameter) {
-      pos.add(left);
+      pos.add(left); 
       counter++;
     }
     if (isRight && counter < diameter) {
-      pos.add(right);
+      pos.add(right); 
       counter++;
     }
     if (counter >= diameter) {
-      counter = 0;
-      isLeft = false;
+      counter = 0; 
+      isLeft = false; 
       isRight = false;
       changeColor();
     }
 
 
-    pos.add(vel);
+    pos.add(vel); 
     if (pos.x < 0) {
       pos.x += width;
       changeColor();
@@ -90,12 +82,12 @@ class Point {
     }
   }
   void changeColor(){
-    c = cam.get((int)pos.x/2,(int)pos.y/2);
+      c = colors[int(random(colors.length))];
   }
 
   void display() {
-    fill(c);
-    noStroke();
-    ellipse(pos.x, pos.y, diameter, diameter);
+    fill(c); 
+    noStroke(); 
+    ellipse(pos.x, pos.y, diameter/8, diameter/8);
   }
 }

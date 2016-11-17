@@ -17,26 +17,26 @@ void setup() {
 
 // draw関数 : setup関数実行後繰り返し実行される
 void draw() {
-  fill(0, 0, 0, 1); 
-  rect(0, 0, width, height); 
+  fill(0, 0, 0, 1);
+  rect(0, 0, width, height);
   for (Point point : points) {
-    point.update(); 
+    point.update();
     point.display();
   }
 }
 
 class Point {
-  PVector pos; 
-  PVector vel; 
-  PVector left = new PVector(-1, 0); 
-  PVector right = new PVector(1, 0); 
-  boolean isLeft = false; 
-  boolean isRight = false; 
+  PVector pos;
+  PVector vel;
+  PVector left = new PVector(-1, 0);
+  PVector right = new PVector(1, 0);
+  boolean isLeft = false;
+  boolean isRight = false;
   int counter = 0;
   color[] colors = {#623C62,#2C1B31,#B04361,#FA7066,#FEBB62};
   color c;
   Point(float x, float y) {
-    pos = new PVector(x, y); 
+    pos = new PVector(x, y);
     vel = new PVector(0, random(-1,-2.5));
     c = colors[int(random(colors.length))];
   }
@@ -48,22 +48,22 @@ class Point {
       isRight = true;
     }
     if (isLeft && counter < diameter) {
-      pos.add(left); 
+      pos.add(left);
       counter++;
     }
     if (isRight && counter < diameter) {
-      pos.add(right); 
+      pos.add(right);
       counter++;
     }
     if (counter >= diameter) {
-      counter = 0; 
-      isLeft = false; 
+      counter = 0;
+      isLeft = false;
       isRight = false;
       changeColor();
     }
 
 
-    pos.add(vel); 
+    pos.add(vel);
     if (pos.x < 0) {
       pos.x += width;
       changeColor();
@@ -86,8 +86,8 @@ class Point {
   }
 
   void display() {
-    fill(c); 
-    noStroke(); 
+    fill(c);
+    noStroke();
     ellipse(pos.x, pos.y, diameter/8, diameter/8);
   }
 }

@@ -11,6 +11,7 @@ int currentFrame = 0;
 PImage[] images = new PImage[frameNum];
 PImage[] slit_images = new PImage[frameNum];
 
+boolean isLineShow = false;
 int slitHeight;
 
 // setup関数 : 初回1度だけ実行される
@@ -26,13 +27,14 @@ void setup() {
   }
   slitHeight = height / frameNum;
 }
-
+void captureEvent(Capture cam){
+  cam.read();
+}
 // draw関数 : setup関数実行後繰り返し実行される
 void draw() {
   background(0,0,0);
-  cam.read();
   images[currentFrame] = cam.get();
-  int tmpFrame;
+  int tmpFrame = 0;
 
   for (int i=0; i<frameNum; i++) {
     tmpFrame = currentFrame + i + 1;
@@ -49,5 +51,16 @@ void draw() {
   currentFrame++;
   if (currentFrame > frameNum-1) {
     currentFrame = 0;
+  }
+  if(isLineShow){
+    stroke(0,0,100);
+    strokeWeight(5);
+    line(0,(frameNum-currentFrame)*slitHeight,width,(frameNum-currentFrame)*slitHeight);
+  }
+}
+
+void keyPressed(){
+  if(key == ' '){
+    isLineShow = !isLineShow;
   }
 }

@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream; 
 import java.io.IOException; 
 
-public class sketch_xxx_slitscan_horizontal extends PApplet {
+public class sketch_xxx_slitscan_vertical extends PApplet {
 
 
 
@@ -29,8 +29,7 @@ int currentFrame = 0;
 PImage[] images = new PImage[frameNum];
 PImage[] slit_images = new PImage[frameNum];
 
-boolean isLineShow = false;
-int slitHeight;
+int slitWidth;
 
 // setup\u95a2\u6570 : \u521d\u56de1\u5ea6\u3060\u3051\u5b9f\u884c\u3055\u308c\u308b
 public void setup() {
@@ -43,48 +42,39 @@ public void setup() {
   for (int i = 0; i < frameNum; i++) {
     images[i] = new PImage();
   }
-  slitHeight = height / frameNum;
+  slitWidth = width / frameNum;
 }
-public void captureEvent(Capture cam){
-  cam.read();
-}
+
 // draw\u95a2\u6570 : setup\u95a2\u6570\u5b9f\u884c\u5f8c\u7e70\u308a\u8fd4\u3057\u5b9f\u884c\u3055\u308c\u308b
 public void draw() {
-  background(0,0,0);
-  images[currentFrame] = cam.get();
-  int tmpFrame = 0;
+  if(cam.available()){
+    cam.read();
+    images[currentFrame] = cam.get();
+    currentFrame++;
+    if (currentFrame > frameNum-1) {
+      currentFrame = 0;
+    }
+
+
+  }
+  int tmpFrame;
 
   for (int i=0; i<frameNum; i++) {
     tmpFrame = currentFrame + i + 1;
     if (tmpFrame > frameNum-1) {
       tmpFrame = tmpFrame - frameNum;
     }
-    slit_images[i] = images[tmpFrame].get(0, i*slitHeight, width, slitHeight);
+    slit_images[i] = images[tmpFrame].get(i*slitWidth, 0, slitWidth, height);
   }
 
   for (int i=0; i<frameNum; i++) {
-    image(slit_images[i], 0, i*slitHeight, width, slitHeight);
+    image(slit_images[i], i*slitWidth, 0, slitWidth, height);
   }
 
-  currentFrame++;
-  if (currentFrame > frameNum-1) {
-    currentFrame = 0;
-  }
-  if(isLineShow){
-    stroke(0,0,100);
-    strokeWeight(5);
-    line(0,(frameNum-currentFrame)*slitHeight,width,(frameNum-currentFrame)*slitHeight);
-  }
-}
-
-public void keyPressed(){
-  if(key == ' '){
-    isLineShow = !isLineShow;
-  }
 }
   public void settings() {  size(1280, 720);  smooth(); }
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "sketch_xxx_slitscan_horizontal" };
+    String[] appletArgs = new String[] { "sketch_xxx_slitscan_vertical" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {

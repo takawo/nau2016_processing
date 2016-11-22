@@ -10,7 +10,7 @@ int duration = 3; // GIFアニメーションの記録秒数
 void setup() {
   size(960, 540); // ウィンドウサイズを960px,540pxに
   colorMode(HSB, 360, 100, 100, 100);
-  frameRate(fps);  
+  frameRate(fps);
   gifExport = new GifMaker(this, "./data/"+getClass().getSimpleName() +".gif"); // ファイル名のGIFアニメーションを作成
   gifExport.setRepeat(0); // エンドレス再生
   gifExport.setQuality(10); // クオリティ(デフォルト10)
@@ -29,7 +29,7 @@ void draw() {
   ellipse(x, y, 100, 100);
   gifExport.addFrame();
 
-  //GIFアニメーションの保存 
+  //GIFアニメーションの保存
   if (frameCount <= fps*duration) {
     gifExport.addFrame(); // フレームを追加
   } else {

@@ -5,7 +5,7 @@ Capture cam;
 
 // number of frames
 final int frameNum = 180;
-// current frame 
+// current frame
 int currentFrame = 0;
 // Image Array
 PImage[] images = new PImage[frameNum];
@@ -29,8 +29,16 @@ void setup() {
 
 // draw関数 : setup関数実行後繰り返し実行される
 void draw() {
-  cam.read();
-  images[currentFrame] = cam.get();
+  if(cam.available()){
+    cam.read();
+    images[currentFrame] = cam.get();
+    currentFrame++;
+    if (currentFrame > frameNum-1) {
+      currentFrame = 0;
+    }
+
+
+  }
   int tmpFrame;
 
   for (int i=0; i<frameNum; i++) {
@@ -45,8 +53,4 @@ void draw() {
     image(slit_images[i], i*slitWidth, 0, slitWidth, height);
   }
 
-  currentFrame++;
-  if (currentFrame > frameNum-1) {
-    currentFrame = 0;
-  }
 }

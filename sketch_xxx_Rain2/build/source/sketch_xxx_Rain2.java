@@ -56,11 +56,11 @@ class Rain {
     if (y  > height) {
       y = random(-200, -100);
     }
-    if(x < 0){
-      x += width;
+    if(x < -100){
+      x += width+100;
     }
-    if(x > width){
-      x -= width;
+    if(x > width+100){
+      x -= width+100;
     }
   }
   public void draw() {

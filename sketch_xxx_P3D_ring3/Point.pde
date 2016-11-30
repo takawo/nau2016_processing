@@ -11,7 +11,7 @@ class Point extends PVector {
     float y = sin(theta) * r;
     float z = map(n, 0, 1, -r/1.5, r/1.5);
     pos = new PVector(x, y, z);
-    incTheta = random(-0.001,0.001);
+    incTheta = random(-0.005,0.005);
   }
   void update() {
     theta += incTheta;

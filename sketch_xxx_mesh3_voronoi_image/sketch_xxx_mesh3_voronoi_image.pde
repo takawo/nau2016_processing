@@ -12,7 +12,7 @@ void setup() {
   smooth(); // 描画を滑らかに
   textAlign(CENTER, CENTER);
   textSize(8);
-  img = loadImage("yumeminemu.jpg");
+  img = loadImage("http://radical-everyday.com/wp-content/uploads/2016/02/yume.jpg");
   for (int i =0; i < num; i++) {
     points[i][0] = 0 + random(0.01);
     points[i][1] = 0 + random(0.01);

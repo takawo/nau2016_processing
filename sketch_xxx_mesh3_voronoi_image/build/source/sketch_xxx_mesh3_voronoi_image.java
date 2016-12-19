@@ -30,7 +30,7 @@ public void setup() {
    // \u63cf\u753b\u3092\u6ed1\u3089\u304b\u306b
   textAlign(CENTER, CENTER);
   textSize(8);
-  img = loadImage("yumeminemu.jpg");
+  img = loadImage("http://radical-everyday.com/wp-content/uploads/2016/02/yume.jpg");
   for (int i =0; i < num; i++) {
     points[i][0] = 0 + random(0.01f);
     points[i][1] = 0 + random(0.01f);

@@ -16,7 +16,7 @@ public class sketch_xxx_typography_aggregate_point extends PApplet {
 
 PGraphics graphic;
 ArrayList<Point> points = new ArrayList<Point>();
-int grid = 15;
+int grid = 5;
 int backgroundColor;
 
 // setup\u95a2\u6570 : \u521d\u56de1\u5ea6\u3060\u3051\u5b9f\u884c\u3055\u308c\u308b
@@ -55,7 +55,7 @@ public void setup() {
 
 // draw\u95a2\u6570 : setup\u95a2\u6570\u5b9f\u884c\u5f8c\u7e70\u308a\u8fd4\u3057\u5b9f\u884c\u3055\u308c\u308b
 public void draw() {
-  fill(0, 0, 0, 1);
+  fill(0, 0, 0, 50);
   rect(0, 0, width, height);
   for (Point p : points) {
     p.update();

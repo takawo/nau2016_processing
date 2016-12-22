@@ -1,6 +1,8 @@
 ArrayList<Particle> particles = new ArrayList<Particle>();
+int NUM_PARTICLE;
 int maxParticles = 0;
 // setup関数 : 初回1度だけ実行される
+int clickCount = 0;
 void setup() {
   size(960, 540); // ウィンドウサイズを960px,540pxに
   colorMode(HSB, 360, 100, 100); // HSBでの色指定にする
@@ -14,6 +16,7 @@ void setup() {
       maxParticles++;
     }
   }
+  NUM_PARTICLE = maxParticles;
   background(0, 0, 100);
 }
 
@@ -45,8 +48,14 @@ void addRemoveParticles() {
 }
 
 void mousePressed(){
-  println("quit");
-  maxParticles = 0;
+  clickCount++;
+  if(clickCount%2 == 0){
+    println("even",NUM_PARTICLE);
+    maxParticles = NUM_PARTICLE;
+  }else{
+    println("odd");
+    maxParticles = 0;
+  }
   // saveframe;
 }
 

@@ -15,7 +15,7 @@ void setup() {
   // マップタイプの指定
   // String mapType = GoogleMapper.MAPTYPE_TERRAIN; // 地形
   // String mapType = GoogleMapper.MAPTYPE_SATELITE; // 衛星写真
-  String mapType = GoogleMapper.MAPTYPE_HYBRID; // ハイブリッド
+  String mapType = GoogleMapper.MAPTYPE_ROADMAP; // ハイブリッド
 
   // マップのサイズ
   int mapWidth=width;

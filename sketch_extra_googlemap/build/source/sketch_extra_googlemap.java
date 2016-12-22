@@ -35,7 +35,7 @@ public void setup() {
   // \u30de\u30c3\u30d7\u30bf\u30a4\u30d7\u306e\u6307\u5b9a
   // String mapType = GoogleMapper.MAPTYPE_TERRAIN; // \u5730\u5f62
   // String mapType = GoogleMapper.MAPTYPE_SATELITE; // \u885b\u661f\u5199\u771f
-  String mapType = GoogleMapper.MAPTYPE_HYBRID; // \u30cf\u30a4\u30d6\u30ea\u30c3\u30c9
+  String mapType = GoogleMapper.MAPTYPE_ROADMAP; // \u30cf\u30a4\u30d6\u30ea\u30c3\u30c9
 
   // \u30de\u30c3\u30d7\u306e\u30b5\u30a4\u30ba
   int mapWidth=width;

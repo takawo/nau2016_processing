@@ -33,7 +33,7 @@ public void setup() {
   graphic.textAlign(CENTER, CENTER);
   graphic.textFont(font, 100);
   graphic.fill(0, 0, 0);
-  graphic.text("TEXT\nIS\nSTRIPE", width/2, height/2);
+  graphic.text("TEXT\nIS\nSTRIPED.", width/2, height/2);
   graphic.endDraw();
 
   for (int y = 0; y < height; y += grid) {
@@ -51,16 +51,18 @@ public void setup() {
 
 // draw\u95a2\u6570 : setup\u95a2\u6570\u5b9f\u884c\u5f8c\u7e70\u308a\u8fd4\u3057\u5b9f\u884c\u3055\u308c\u308b
 public void draw() {
-  background(0
-  , 0, 100);
-  for (PVector p : points) {
-    stroke(0,0,0);
-    for(int x = (int)p.x; x < p.x+grid; x +=grid){
-    line(x, p.y-5, x+grid, p.y+5);
+  background(0, 0, 100);
+    for (PVector p : points) {
+      stroke(0,0,0);
+      for(int x = (int)p.x; x < p.x+grid; x +=grid){
+        stroke(120,80,100);
+        line(x, p.y-5, x+grid, p.y+5);
+        stroke(0,80,100);
+        line(x-5, p.y-5, x+5, p.y+5);
+      }
     }
+    noLoop();
   }
-  noLoop();
-}
   public void settings() {  size(960, 540);  smooth(); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "sketch_xxx_typograpy_stripes" };

@@ -64,7 +64,6 @@ void setup() {
 void draw() {
   background(0);
   map.draw();
-  debugDisplay.draw();
   stroke(220, 80, 100, 100);
   noFill();
   strokeWeight(3);
@@ -100,6 +99,8 @@ void draw() {
     ScreenPosition pos = map.getScreenPosition(station.loc);
     ellipse(pos.x, pos.y, 9, 9);
   }
+  
+  debugDisplay.draw();
 }
 
 class Station {

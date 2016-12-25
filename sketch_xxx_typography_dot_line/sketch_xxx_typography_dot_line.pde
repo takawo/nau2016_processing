@@ -36,7 +36,7 @@ void draw(){
 
   // int gridX = (int)map(mouseX,0,width,3,50);
   // int gridY = (int)map(mouseY,0,height,3,50);
-  
+
   int margin = max(gridX,gridY) * 2;
   for(int y = -margin; y < height+margin; y+=gridY){
     for(int x = -margin; x < width+margin; x+=gridX){

@@ -2,7 +2,8 @@ ArrayList<Blob> blobs = new ArrayList<Blob>();
 int num = 5;
 // setup関数 : 初回1度だけ実行される
 void setup() {
-  size(960, 540); // ウィンドウサイズを960px,540pxに
+  //size(960, 540); // ウィンドウサイズを960px,540pxに
+  fullScreen(P2D);
   colorMode(HSB, 360, 100, 100); // HSBでの色指定にする
   smooth(); // 描画を滑らかに
   for (int i = 0; i < num; i++) {
@@ -13,16 +14,20 @@ void setup() {
 
 // draw関数 : setup関数実行後繰り返し実行される
 void draw() {
+  background(0,0,100);
+
   loadPixels();
+  int index = 0;
+  float sum = 0;
   for (int x = 0; x < width; x++) {
     for (int y = 0; y < height; y++) {
-      int index = x + y * width;
-      float sum = 0;
+      index = x + y * width;
+      sum = 0;
       for (Blob b : blobs) {
-        float d = dist(x, y, b.pos.x, b.pos.y); 
-        sum += 200 * b.r / d;
+        //float d = ;
+        sum += 25 * b.r / dist(x, y, b.pos.x, b.pos.y);
       }
-      pixels[index] = color(sum, 80, 100);
+      pixels[index] = color(0,0, 100-sum);
     }
   }
   updatePixels();

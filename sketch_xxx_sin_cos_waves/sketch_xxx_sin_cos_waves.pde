@@ -3,6 +3,7 @@ int m = 10;
 float period = 120;
 float amplitude;
 float size = 10;
+
 // setup関数 : 初回1度だけ実行される
 void setup() {
   size(960, 540, P2D); // ウィンドウサイズを960px,540pxに

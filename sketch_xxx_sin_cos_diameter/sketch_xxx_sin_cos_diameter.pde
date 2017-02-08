@@ -1,13 +1,11 @@
-float t = 0;
+float n = 100;
+
 // setup関数 : 初回1度だけ実行される
-Easing easing;
 void setup() {
   size(960, 540, P2D); // ウィンドウサイズを960px,540pxに
   colorMode(HSB, 360, 100, 100); // HSBでの色指定にする
   smooth(8); // 描画を滑らかに
-  easing = new EasingOutElastic();
 }
-float n = 50;
 // draw関数 : setup関数実行後繰り返し実行される
 void draw() {
   background(0, 0, 100);

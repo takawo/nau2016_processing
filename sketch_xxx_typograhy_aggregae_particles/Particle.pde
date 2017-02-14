@@ -11,7 +11,7 @@ class Particle{
   }
 
   void getPosition(){
-    while(loc == null || !isInText(loc)){
+    while(loc == null || isInText(loc)){
       loc = new PVector(random(width),random(height));
     }
   }
@@ -21,7 +21,7 @@ class Particle{
     loc.add(vel);
     switch(mode){
       case 0:
-      if (!isInText(loc)){
+      if (isInText(loc)){
         getPosition();
       }
       break;
@@ -30,7 +30,7 @@ class Particle{
       radius *= 0.95;
       break;
       case 2:
-      if (!isInText(loc)){
+      if (isInText(loc)){
         getPosition();
       }
       life -= lifeRate;

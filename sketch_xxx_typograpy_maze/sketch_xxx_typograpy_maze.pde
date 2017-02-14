@@ -17,7 +17,7 @@ void setup() {
     graphic.textAlign(CENTER, CENTER);
     graphic.textFont(font, 350);
     graphic.fill(0, 0, 0);
-    graphic.text("type", width/2, height/2);
+    graphic.text("地獄", width/2, height/2);
     graphic.endDraw();
 
     for (int y = 0; y < height; y += grid) {
